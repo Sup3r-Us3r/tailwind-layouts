@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Twitter</title>
+</head>
+<body class="bg-gray-300 leading-normal tracking-wide font-sans mb-56">
+    <!-- NAVBAR -->
+    <nav class="fixed w-full px-0 lg:px-16 h-12 pt-2 flex flex-wrap items-center z-10 top-0 bg-white shadow-md">
+        <!-- MENU -->
+        <div class="hidden w-full flex-grow text-center mt-10 lg:mt-0 lg:flex lg:items-center lg:flex-grow-0 lg:w-3/6 lg:bg-transparent bg-white" id="nav-content">
+            <span class="w-full lg:w-auto block text-sm text-gray-600 font-semibold mr-6 cursor-pointer pb-2 pt-2 lg:pt-0 border-solid border-b-2 border-transparent hover:text-gray-800 hover:border-gray-800"><i class="fa fa-home mr-2"></i>Página Inicial</span>
+            <span class="w-full lg:w-auto block text-sm text-gray-600 font-semibold mr-6 cursor-pointer pb-2 pt-2 lg:pt-0 border-solid border-b-2 border-transparent hover:text-gray-800 hover:border-gray-800"><i class="fa fa-bolt mr-2"></i>Moments</span>
+            <span class="w-full lg:w-auto block text-sm text-gray-600 font-semibold mr-6 cursor-pointer pb-2 pt-2 lg:pt-0 border-solid border-b-2 border-transparent hover:text-gray-800 hover:border-gray-800"><i class="fa fa-bell mr-2"></i>Notificações</span>
+            <span class="w-full lg:w-auto block text-sm text-gray-600 font-semibold mr-6 cursor-pointer pb-2 pt-2 lg:pt-0 border-solid border-b-2 border-transparent hover:text-gray-800 hover:border-gray-800"><i class="fa fa-envelope mr-2"></i>Mensagens</span>
+        </div>
+        <!-- /MENU -->
+
+        <!-- TWITTER ICON -->
+        <div class="absolute lg:static lg:flex lg:items-center lg:mx-auto lg:w-1/6 pb-2 ml-3">
+            <i class="text-blue-500 fab fa-twitter fa-lg"></i>
+        </div>
+        <!-- /TWITTER ICON -->
+
+        <!-- SEARCH & BUTTON -->
+        <div class="block fixed lg:static lg:flex lg:justify-end lg:items-center w-full lg:w-2/6 pb-2 mr-10 lg:mr-0" style="right: 10px;">
+            <div class="hidden lg:block relative mr-4">
+                <input class="font-sans text-sm text-gray-800 py-1 rounded-full px-4 bg-gray-200 border-2 border-gray-300 focus:outline-none focus:border-gray-800" type="text" placeholder="Buscar no Twitter">
+                <i class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 fas fa-search"></i>
+            </div>
+
+            <div class="flex items-center justify-end">
+                <img class="h-8 w-8 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Profile">
+                <button class="cursor-pointer bg-gray-700 text-gray-200 font-bold text-md px-2 py-1 rounded-full hover:bg-gray-800 focus:outline-none">Tweetar</button>
+            </div>
+        </div>
+        <!-- /SEARCH & BUTTON -->
+
+        <!-- NAV TOGGLE -->
+        <div class="block absolute lg:hidden right-0 mx-3">
+            <button id="nav-toggle" class="text-gray-600 focus:outline-none hover:text-gray-800">
+                <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+            </button>
+        </div>
+        <!-- NAV TOGGLE -->
+    </nav>
+    <!-- /NAVBAR -->
+
+    <!-- BAR WHITE -->
+    <div class="block">
+        <div class="bg-no-repeat bg-auto bg-center" style="background-image: url('https://pbs.twimg.com/profile_banners/2357690357/1534787599/1500x500'); height: 320px;"></div>
+        <img class="-mt-24 ml-8 lg:ml-20 h-32 w-32 lg:h-48 lg:w-48 rounded-full border-4 border-white" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Profile">
+        <div class="flex items-center justify-center h-16 bg-white -mt-24 shadow-md">
+            <!-- NAVIGATION -->
+            <div class="hidden container lg:flex lg:items-center lg:justify-end lg:w-3/4 lg:-ml-24">
+                <div class="cursor-pointer text-center border-b-2 border-gray-800 pb-2 mt-2 mx-4 hover:border-gray-800">
+                    <span class="block font-semibold text-gray-600 text-sm">Tweets</span>
+                    <span class="block font-bold text-lg text-gray-800 hover:text-gray-800">167</span>
+                </div>
+                <div class="cursor-pointer text-center border-b-2 border-transparent pb-2 mt-2 mx-4 hover:border-gray-800">
+                    <span class="block font-semibold text-gray-600 text-sm">Seguindo</span>
+                    <span class="block font-bold text-lg text-gray-600 hover:text-gray-800">11</span>
+                </div>
+                <div class="cursor-pointer text-center border-b-2 border-transparent pb-2 mt-2 mx-4 hover:border-gray-800">
+                    <span class="block font-semibold text-gray-600 text-sm">Seguidores</span>
+                    <span class="block font-bold text-lg text-gray-600 hover:text-gray-800">789</span>
+                </div>
+                <div class="cursor-pointer text-center border-b-2 border-transparent pb-2 mt-2 mx-4 hover:border-gray-800">
+                    <span class="block font-semibold text-gray-600 text-sm">Curtidas</span>
+                    <span class="block font-bold text-lg text-gray-600 hover:text-gray-800">238</span>
+                </div>
+                <div class="cursor-pointer text-center border-b-2 border-transparent pb-2 mt-2 mx-4 hover:border-gray-800">
+                    <span class="block font-semibold text-gray-600 text-sm">Listas</span>
+                    <span class="block font-bold text-lg text-gray-600 hover:text-gray-800">0</span>
+                </div>
+                <div class="cursor-pointer text-center border-b-2 border-transparent pb-2 mt-2 mx-4 hover:border-gray-800">
+                    <span class="block font-semibold text-gray-600 text-sm">Moments</span>
+                    <span class="block font-bold text-lg text-gray-600 hover:text-gray-800">0</span>
+                </div>
+            </div>
+            <!-- /NAVIGATION -->
+
+            <!-- EDIT -->
+            <div class="w-full flex items-center justify-end mr-8 lg:mr-0 lg:justify-center lg:w-1/4">
+                <button class="font-semibold text-gray-600 px-3 py-1 rounded-full bg-transparent border border-gray-800 hover:bg-gray-100 focus:outline-none">Editar perfil</button>
+            </div>
+            <!-- /EDIT -->
+        </div>
+    </div>
+    <!-- /BAR WHITE -->
+
+    <!-- MAIN -->
+    <main class="flex flex-wrap items-start justify-center md:mx-5 lg:mx-5"> <!-- max-w-6xl mx-auto -->
+        <!-- INFORMATION -->
+        <section class="w-full lg:w-1/4">
+            <!-- INFO -->
+            <div class="flex items-center justify-center">
+                <div class="mt-10">
+                    <span class="block text-lg md:text-4xl lg:text-2xl text-left md:text-center lg:text-left font-bold text-gray-800">Magno-Tutor</span>
+                    <span class="block text-sm md:text-2xl lg:text-lg text-left md:text-center lg:text-left md:mb-5 lg:mb-0 font-normal text-gray-600">@Magn0tutor</span>
+                    <span class="mt-3 block md:hidden lg:block text-sm lg:text-sm font-normal text-gray-800">░░░███▄███▄███░░░</span>
+                    <span class="mt-2 block md:hidden lg:block text-sm lg:text-sm font-normal text-gray-800"><i class="fas fa-map-marker-alt text-gray-600 mr-2"></i>Brazil</span>
+                    <span class="mt-2 block md:hidden lg:block text-sm lg:text-sm font-normal text-gray-800"><i class="fas fa-link text-gray-600 mr-2"></i>sup3r-us3r.github.io</span>
+                    <span class="mt-2 block md:hidden lg:block text-sm lg:text-sm font-normal text-gray-800"><i class="far fa-calendar-alt text-gray-600 mr-2"></i>Participa desde fevereiro de 2014</span>
+                    <span class="mt-2 block md:hidden lg:block text-sm lg:text-sm font-normal text-gray-800"><i class="fas fa-birthday-cake text-gray-600 mr-2"></i>Nasceu em 22 de abril de 1999</span>
+                    <span class="mt-2 block md:hidden lg:block text-sm lg:text-sm font-normal text-gray-800"><i class="far fa-image text-gray-600 mr-2"></i>133 Fotos e vídeos</span>
+                </div>
+            </div>
+            <!-- /INFO -->
+
+            <!-- GALLERY -->
+            <div class="mt-2 flex flex-wrap items-center justify-center">
+                <img class="m-1 h-32 w-32 lg:h-20 lg:w-20 rounded-lg" src="https://pbs.twimg.com/media/D8_akJiUEAEVu7w.jpg:thumb">
+                <img class="m-1 h-32 w-32 lg:h-20 lg:w-20 rounded-lg" src="https://pbs.twimg.com/media/D7dRvcZWwAAEtLP.jpg:thumb">
+                <img class="m-1 h-32 w-32 lg:h-20 lg:w-20 rounded-lg" src="https://pbs.twimg.com/media/DlD7Y8NWwAA-4ol.jpg:thumb">
+                <img class="m-1 h-32 w-32 lg:h-20 lg:w-20 rounded-lg" src="https://pbs.twimg.com/media/DlD7IrsX0AI_rue.jpg:thumb">
+                <img class="m-1 h-32 w-32 lg:h-20 lg:w-20 rounded-lg" src="https://pbs.twimg.com/media/DUQJq_lW4AEC6M1.jpg:thumb">
+                <img class="m-1 h-32 w-32 lg:h-20 lg:w-20 rounded-lg" src="https://pbs.twimg.com/media/DJUXTKcXUAACjOb.jpg:thumb">
+            </div>
+            <!-- /GALLERY -->
+        </section>
+        <!-- /INFORMATION -->
+
+        <!-- POSTS -->
+        <section class="w-full lg:w-2/4 bg-white pt-2 mt-3 hover:bg-gray-100">
+            <!-- POSTS HEADER -->
+            <div class="flex flex-wrap justify-center md:justify-start lg:justify-start">
+                <div class="border-b-2 border-gray-200 w-full pb-2">
+                    <span class="mx-2 md:mx-5 lg:mx-5 text-sm md:text-lg lg:text-lg text-gray-800 font-bold">Tweets</span>
+                    <span class="mx-2 md:mx-5 lg:mx-5 text-sm md:text-lg lg:text-lg text-gray-800 font-bold">Tweets e respostas</span>
+                    <span class="mx-2 md:mx-5 lg:mx-5 text-sm md:text-lg lg:text-lg text-gray-800 font-bold">Mídia</span>
+                </div>
+            </div>
+            <!-- /POSTS HEADER -->
+
+            <!-- POSTS BODY -->
+            <div class="my-3 flex flex-wrap md:flex-nowrap lg:flex-nowrap items-center">
+                <div class="mx-auto md:mx-5 lg:mx-5">
+                    <img class="block h-16 w-16 rounded-full mb-2 md:mb-0 lg:mb-0" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Profile">
+                </div>
+                <div class="mb-1 flex flex-wrap items-center justify-center md:block lg:block">
+                    <span class="text-base font-bold text-gray-800">Magno-Tutor</span>
+                    <span class="text-base font-normal text-gray-600">@Magn0tutor</span>
+                    <span class="text-base font-normal text-gray-600">&nbsp;&bull;14 de jun</span>
+                    <p class="text-base font-normal text-gray-800">Building carousel with @tailwindcss 💚</p>
+                    <span class="cursor-pointer text-gray-600 text-base hover:text-gray-800"><i class="fas fa-globe-americas mr-2"></i>Traduzir Tweet</span>
+                </div>
+            </div>
+            <div class="mx-3 p-0 md:ml-16 lg:ml-16 flex items-center justify-center md:pl-10 md:pr-3 lg:pl-10 lg:pr-3">
+                <img class="rounded-lg h-auto w-auto" src="https://pbs.twimg.com/media/D8_akJiUEAEVu7w.jpg" alt="Post">
+            </div>
+            <!-- /POSTS BODY -->
+
+            <!-- POSTS FOOTER -->
+            <div class="flex items-center justify-center border-b-2 border-gray-200">
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-gray-500 hover:text-blue-600"><i class="far fa-comment"></i></span>
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-gray-500 hover:text-teal-600"><i class="fas fa-retweet"></i></span>
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-red-600 hover:text-red-600 font-bold"><i class="fas fa-heart mr-2"></i>1</span>
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-gray-500 hover:text-gray-800"><i class="far fa-chart-bar"></i></span>
+            </div>
+            <!-- /POSTS FOOTER -->
+
+
+
+            <!-- POSTS BODY -->
+            <div class="my-3 flex flex-wrap md:flex-nowrap lg:flex-nowrap items-center">
+                <div class="mx-auto md:mx-5 lg:mx-5">
+                    <img class="block h-16 w-16 rounded-full mb-2 md:mb-0 lg:mb-0" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Profile">
+                </div>
+                <div class="mb-1 flex flex-wrap items-center justify-center md:block lg:block">
+                    <span class="text-base font-bold text-gray-800">Magno-Tutor</span>
+                    <span class="text-base font-normal text-gray-600">@Magn0tutor</span>
+                    <span class="text-base font-normal text-gray-600">&nbsp;&bull;26 de maio</span>
+                    <p class="text-base font-normal text-gray-800">Rebuilding layout with @tailwindcss 💚</p>
+                    <span class="cursor-pointer text-gray-600 text-base hover:text-gray-800"><i class="fas fa-globe-americas mr-2"></i>Traduzir Tweet</span>
+                </div>
+            </div>
+            <div class="mx-3 p-0 md:ml-16 lg:ml-16 flex items-center justify-center md:pl-10 md:pr-3 lg:pl-10 lg:pr-3">
+                <img class="rounded-lg h-auto w-auto" src="https://pbs.twimg.com/media/D7dRvcZWwAAEtLP.jpg" alt="Post">
+            </div>
+            <!-- /POSTS BODY -->
+
+            <!-- POSTS FOOTER -->
+            <div class="flex items-center justify-center border-b-2 border-gray-200">
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-gray-500 hover:text-blue-600"><i class="far fa-comment"></i></span>
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-gray-500 hover:text-teal-600"><i class="fas fa-retweet"></i></span>
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-red-600 hover:text-red-600 font-bold"><i class="fas fa-heart mr-2"></i>2</span>
+                <span class="cursor-pointer mx-2 md:mx-5 lg:mx-5 p-3 text-gray-500 hover:text-gray-800"><i class="far fa-chart-bar"></i></span>
+            </div>
+            <!-- /POSTS FOOTER -->
+
+        </section>
+        <!-- /POSTS -->
+
+        <section class="w-full lg:w-1/4 mt-3">
+            <!-- ACTIVITY -->
+            <div class="flex flex-wrap items-center justify-start lg:ml-8 bg-white px-5 py-3">
+                <span class="text-lg font-bold text-gray-800 mb-3">Atividade de seus Tweets</span>
+                <span class="text-sm text-gray-800">
+                    Seus Tweets receberam <strong>2.699 visualizações</strong> nos últimos <strong>28 dias</strong>
+                </span>
+                <span class="cursor-pointer text-sm text-gray-800 mt-3 border-b border-transparent hover:border-gray-800">Veja seus melhores Tweets</span>
+            </div>
+            <!-- /ACTIVITY -->
+
+            <!-- WHO TO FOLLOW -->
+            <div class="flex-col flex-wrap items-center justify-start lg:ml-8 bg-white mt-3 px-5 py-3">
+                <span class="text-lg text-gray-800 font-bold">Quem seguir</span>
+                <span class="ml-1 text-sm text-gray-600">· Atualizar</span>
+                <span class="ml-1 text-sm text-gray-600">· Ver todos</span>
+                <div class="relative flex items-center justify-start mt-2 border-b-2 border-gray-200">
+                    <svg class="absolute top-0 right-0 h-2 w-h-2 fill-current text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                    <img class="h-12 w-12 rounded-full" src="https://pbs.twimg.com/profile_images/895274026783866881/E1G1nNb0_400x400.jpg" alt="Follow">
+                    <div class="ml-3">
+                        <span class="block text-base text-gray-600 mb-1">@tailwindcss</span>
+                        <button class="block text-sm font-semibold text-gray-800 rounded-full border border-gray-800 px-5 mb-3 hover:bg-gray-200 focus:outline-none">Seguir</button>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-start mt-2 border-b-2 border-gray-200">
+                    <svg class="absolute top-0 right-0 h-2 w-h-2 fill-current text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                    <img class="h-12 w-12 rounded-full" src="https://pbs.twimg.com/profile_images/678900104678342656/2w2dw7Fp_400x400.png" alt="Follow">
+                    <div class="ml-3">
+                        <span class="block text-base text-gray-600 mb-1">@archlinux</span>
+                        <button class="block text-sm font-semibold text-gray-800 rounded-full border border-gray-800 px-5 mb-3 hover:bg-gray-200 focus:outline-none">Seguir</button>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-start mt-2 border-b-2 border-gray-200">
+                    <svg class="absolute top-0 right-0 h-2 w-h-2 fill-current text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                    <img class="h-12 w-12 rounded-full" src="https://pbs.twimg.com/profile_images/654039788190720000/cFEn8uEY_400x400.png" alt="Follow">
+                    <div class="ml-3">
+                        <span class="block text-base text-gray-600 mb-1">@javascript</span>
+                        <button class="block text-sm font-semibold text-gray-800 rounded-full border border-gray-800 px-5 mb-3 hover:bg-gray-200 focus:outline-none">Seguir</button>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-start mt-2 border-b-2 border-gray-200">
+                    <svg class="absolute top-0 right-0 h-2 w-h-2 fill-current text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                    <img class="h-12 w-12 rounded-full" src="https://pbs.twimg.com/profile_images/1146106967477379073/J3fzYcnz_400x400.png" alt="Follow">
+                    <div class="ml-3">
+                        <span class="block text-base text-gray-600 mb-1">@MongoDB</span>
+                        <button class="block text-sm font-semibold text-gray-800 rounded-full border border-gray-800 px-5 mb-3 hover:bg-gray-200 focus:outline-none">Seguir</button>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-start mt-2 border-b-2 border-gray-200">
+                    <svg class="absolute top-0 right-0 h-2 w-h-2 fill-current text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                    <img class="h-12 w-12 rounded-full" src="https://pbs.twimg.com/profile_images/702185727262482432/n1JRsFeB_400x400.png" alt="Follow">
+                    <div class="ml-3">
+                        <span class="block text-base text-gray-600 mb-1">@nodejs</span>
+                        <button class="block text-sm font-semibold text-gray-800 rounded-full border border-gray-800 px-5 mb-3 hover:bg-gray-200 focus:outline-none">Seguir</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /WHO TO FOLLOW -->
+
+        </section>
+    </main>
+    <!-- /MAIN -->
+
+
+        
+    <script>
+        //Javascript to toggle the menu
+        document.getElementById('nav-toggle').onclick = function() {
+            document.getElementById("nav-content").classList.toggle("hidden");
+        }
+    </script>
+    
+</body>
+</html>
