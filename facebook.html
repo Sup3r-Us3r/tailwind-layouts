@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Facebook</title>
+
+    <style>
+        .lg\:h-330 { height: 330px; }
+        .fc-icon { height:22px; width:22px; background-image: url('https://raw.githubusercontent.com/lucianoskyline/facebook-template/master/icons.png'); }
+        .fc-icon-foto-video { background-position: 142px -517px; }
+        .fc-icon-marcar-amigos { background-position: 57px -454px; }
+        .fc-icon-sentimentos { background-position: 120px -454px; }
+        .fc-icon-mais { background-position: 36px -601px; }
+        .fc-icon-comentar { background-position: 57px -642px; }
+        .fc-icon-compartilhar { background-position: 1px -662px; }
+    </style>
+</head>
+<body class="bg-gray-300 leading-normal tracking-wide font-sans">
+    <nav class="px-0 lg:px-16 py-2 lg:py-0 lg:h-12 bg-blue-700 flex items-center justify-center flex-wrap fixed w-full z-10 top-0">
+        <div class="pl-5 w-10/12 lg:w-1/2 flex flex-no-wrap items-center justify-start lg:justify-center">
+            <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+            <div class="relative">
+                <input class="ml-2 h-6 px-2 lg:pl-2 lg:pr-56 rounded-sm font-sans text-gray-700 text-sm focus:outline-none" type="text" placeholder="Pesquisar">
+                <i class="absolute text-gray-700 fas fa-search top-0 right-0 pt-1 pr-3"></i>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2 lg:flex lg:flex-wrap lg:items-center lg:justify-center hidden">
+            <img class="h-6 w-6 rounded-full" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+            <span class="ml-2 font-semibold text-white text-sm">Magno</span>
+            <span class="mx-2 text-base text-blue-800">|</span>
+            <span class="font-semibold text-white text-sm">Página Inicial</span>
+            <span class="mx-2 text-base text-blue-800">|</span>
+            <span class="font-semibold text-white text-sm">Criar</span>
+            <span class="mx-2 text-base text-blue-800">|</span>
+            <i class="mx-1 text-gray-900 fa-lg fas fa-user-friends"></i>
+            <i class="mx-1 text-gray-900 fa-lg fab fa-facebook-messenger"></i>
+            <i class="mx-1 text-gray-900 fa-lg fas fa-bell"></i>
+            <span class="mx-2 text-base text-blue-800">|</span>
+            <i class="mx-1 text-gray-900 fa-lg fas fa-question-circle"></i>
+            <i class="mx-1 text-gray-900 fa-lg fas fa-sort-down"></i>
+        </div>
+
+        <div class="w-2/12 lg:hidden flex items-center justify-end pr-5">
+            <button id="nav-toggle" class="flex items-center px-2 py-1 border border-transparent rounded text-white focus:outline-none hover:border-white">
+                <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+            </button>
+        </div>
+
+        <div class="inline-block lg:hidden w-full mt-10 lg:mt-0" id="nav-content">
+            <span class="pl-5 mt-2 pb-1 cursor-pointer flex justify-start items-center text-white font-semibold text-base border-b-2 border-transparent hover:border-white">
+                <i class="mr-3 text-gray-900 fas fa-user-circle fa-lg"></i>Perfil
+            </span>
+            <span class="pl-5 mt-2 pb-1 cursor-pointer flex justify-start items-center text-white font-semibold text-base border-b-2 border-transparent hover:border-white">
+                <i class="mr-3 text-gray-900 fa-lg fas fa-user-friends"></i>Amigos
+            </span>
+            <span class="pl-5 mt-2 pb-1 cursor-pointer flex justify-start items-center text-white font-semibold text-base border-b-2 border-transparent hover:border-white">
+                <i class="mr-3 text-gray-900 fa-lg fab fa-facebook-messenger"></i>Mensagens
+            </span>
+            <span class="pl-5 mt-2 pb-1 cursor-pointer flex justify-start items-center text-white font-semibold text-base border-b-2 border-transparent hover:border-white">
+                <i class="mr-3 text-gray-900 fa-lg fas fa-bell"></i>Notificações
+            </span>
+            <span class="pl-5 mt-2 pb-1 cursor-pointer flex justify-start items-center text-white font-semibold text-base border-b-2 border-transparent hover:border-white">
+                <i class="mr-3 text-gray-900 fa-lg fas fa-question-circle"></i>Ajuda
+            </span>
+        </div>
+    </nav>
+
+    <main class="mx-0 lg:ml-20 flex items-start justify-center mt-12">
+        <!-- BANNER + CONFIG PERFIL-->
+        <section class="block w-full lg:w-9/12 mx-auto">
+            <div class="relative">
+                <img class="object-cover h-auto lg:h-330 w-full" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-9/25591853_2004276023178986_2189619464838469636_n.jpg?_nc_cat=110&_nc_eui2=AeEK9qElJQmczaeqHiJaC5Yq7cHajwMGUDr0hEhb8rve7N7qbZucZEBgIrj4yMZPlBbAxKhXlcOi52dLANRNEPZxTOYjMskEGhZhk8TKOKvSsQ&_nc_oc=AQkVDjhBvRr3sb-8BW8oLjxAISdUuJ2YTJXCEa6Sr4YERifcxAZwgM5ER89F0PjLc8k&_nc_ht=scontent-gru2-2.xx&oh=fd2b3315ab27fff2ec459c5572f6604a&oe=5DEA6E78" alt="Cover"> <!-- style="height: 330px;" -->
+                <svg class="cursor-pointer fill-current absolute top-0 left-0 m-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M5 4H2V3h3v1zm8 6c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm11-5v17H0V5h5.93c.669 0 1.293-.334 1.664-.891L9 2h8l1.406 2.109c.371.557.995.891 1.664.891H24zM5 9a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm13 4a5 5 0 1 0-10.001.001A5 5 0 0 0 18 13z"/></svg>
+                <div class="relative -mt-24 md:-mt-32 lg:-mt-32 flex items-center justify-center md:justify-start lg:justify-start">
+                    <img class="ml-0 md:ml-8 lg:ml-8 h-32 w-32 md:h-40 md:w-40 lg:h-40 lg:w-40 rounded-full" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+                    <div class="mb-10 md:mb-0 lg:mb-0 block">
+                        <span class="block ml-5 font-bold text-2xl text-white">Magno Tutor</span>
+                        <span class="block ml-5 font-semiold text-lg text-white">(вялікі настаўнік)</span>
+                    </div>
+                    <div class="hidden md:block lg:block absolute right-0 mb-2 mr-4">
+                        <button class="mb-4 block py-1 font-semibold text-xs text-gray-800 bg-gray-300 px-4 focus:outline-none">
+                            Atualizar informações
+                            <span class="text-xs px-1 bg-red-600 text-white font-bold rounded-sm">2</span>
+                        </button>
+                        <button class="mb-2 block py-1 font-semibold text-xs text-gray-800 bg-gray-300 px-4 focus:outline-none">
+                            <i class="mr-4 fas fa-align-justify"></i>Registro de Atividades
+                            <span class="text-xs px-1 bg-red-600 text-white font-bold rounded-sm">3</span>
+                            <span class="mx-1 text-sm text-gray-500">|</span>
+                            <span class="text-xs text-gray-500">...</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /BANNER + CONFIG PERFIL -->
+            <!-- BAR -->
+            <div class="pt-12 md:pt-0 lg:pt-0 flex flex-wrap items-center justify-center md:justify-end lg:justify-end -mt-8 pr-0 md:pr-24 bg-gray-100 border border-gray-400 w-full">
+                <span class="cursor-pointer hover:bg-gray-200 w-1/2 md:w-auto lg:w-auto border border-gray-300 p-3 text-center text-sm font-bold text-blue-900">Linha do Tempo <i class="fa-lg fas fa-sort-down"></i></span>
+                <span class="cursor-pointer hover:bg-gray-200 w-1/2 md:w-auto lg:w-auto border border-gray-300 p-3 text-center text-sm font-bold text-blue-900">Sobre</span>
+                <span class="cursor-pointer hover:bg-gray-200 w-1/2 md:w-auto lg:w-auto border border-gray-300 p-3 text-center text-sm font-bold text-blue-900">Amigos</span>
+                <span class="cursor-pointer hover:bg-gray-200 w-1/2 md:w-auto lg:w-auto border border-gray-300 p-3 text-center text-sm font-bold text-blue-900">Fotos</span>
+                <span class="cursor-pointer hover:bg-gray-200 w-full md:w-auto lg:w-auto border border-gray-300 p-3 text-center text-sm font-bold text-blue-900"><i class="fas fa-lock"></i> Itens arquivados</span>
+            </div>
+            <!-- /BAR -->
+
+            <section class="flex flex-wrap md:flex-no-wrap lg:flex-no-wrap w-full">
+                <section class="mb-3 pb-3 mt-4  w-full md:w-2/5 lg:w-2/5"> <!-- h-screen | Dá conflito | Resolver depois! -->
+                    <!-- STAR -->
+                    <div class="relative cursor-pointer rounded-sm px-3 flex items-center justify-start py-2 bg-gray-100 hover:bg-gray-200 border border-gray-400">
+                        <span class="text-sm text-gray-800"><i class="text-xs p-1 mr-2 rounded-sm bg-blue-700 text-white fas fa-star"></i>3 itens para você analisar</span>
+                        <i class="absolute cursor-pointer right-0 pr-3 text-xs text-gray-400 fas fa-times hover:text-gray-500"></i>
+                    </div>
+                    <!-- /STAR -->
+                    <!-- INFO -->
+                    <div class="block mt-3 px-3 py-2 bg-gray-100 rounded-sm border border-gray-400">
+                        <span class="block text-lg text-gray-800"><i class="rounded-full p-1 mr-3 text-white text-base bg-blue-700 fas fa-globe-americas"></i>Apresentação</span>
+                        <span class="my-4 block text-xs text-center text-gray-800">Ƹ̵̡Ӝ̵̨̄Ʒ</span>
+                        <hr class="border-b border-gray-200">
+                        <span class="block mt-2 text-sm text-gray-700">
+                            <i class="mr-2 fas fa-suitcase"></i>Trabalha na empresa
+                            <span class="cursor-pointer text-blue-700 border-b border-transparent hover:border-blue-700">YouTube</span>
+                        </span>
+                        <span class="block mt-2 text-sm text-gray-700">
+                            <i class="mr-2 fas fa-suitcase"></i>Chefe na empresa
+                            <span class="cursor-pointer text-blue-700 border-b border-transparent hover:border-blue-700">Magno Tutor</span>
+                        </span>
+                        <span class="block mt-2 text-sm text-gray-700">
+                            <i class="mr-2 fab fa-redhat"></i>Estuda na instituição de ensino
+                            <span class="cursor-pointer text-blue-700 border-b border-transparent hover:border-blue-700">Minha Casa / Meu Quarto / Meu Computador</span>
+                        </span>
+                        <span class="block mt-2 text-sm text-gray-700">
+                            <i class="mr-2 fas fa-clock"></i>Entrou Março de 2014
+                        </span>
+                        <span class="block mt-2 text-sm text-gray-700">
+                            <i class="mr-2 fas fa-wifi"></i>Seguido por
+                            <span class="cursor-pointer text-blue-700 border-b border-transparent hover:border-blue-700">632 pessoas</span>
+                        </span>
+                        <span class="block mt-2 text-sm text-gray-700">
+                            <i class="mr-2 fas fa-flag"></i>Gerencia
+                            <span class="cursor-pointer text-blue-700 border-b border-transparent hover:border-blue-700">Magno Tutor</span>
+                        </span>
+                        <img class="my-3 h-auto w-auto" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-9/23844540_1992975630975692_6298345094607925436_n.jpg?_nc_cat=108&_nc_oc=AQm9zMgi5uby3UvmJdgLMmrTbJJXeF8HSFsmOMfxwIDts4SS0rT_9lt-_qRit38-_MQ&_nc_ht=scontent-gru2-2.xx&oh=4b4c728b3c2028dfe54c35b5c35b4b2e&oe=5DEA348F" alt="Info">
+                        <div class="mb-3 flex flex-wrap items-center justify-center">
+                            <span class="cursor-pointer py-1 px-2 m-1 text-sm text-gray-800 rounded-sm border border-gray-400 hover:border-gray-500"><i class="text-gray-600 mr-2 fab fa-spotify"></i>Sup3r-Us3r</span>
+                            <span class="cursor-pointer py-1 px-2 m-1 text-sm text-gray-800 rounded-sm border border-gray-400 hover:border-gray-500"><i class="text-gray-600 mr-2 fab fa-youtube"></i>Magno-Tutor</span>
+                            <span class="cursor-pointer py-1 px-2 m-1 text-sm text-gray-800 rounded-sm border border-gray-400 hover:border-gray-500"><i class="text-gray-600 mr-2 fab fa-twitter"></i>Magn0tutor</span>
+                            <span class="cursor-pointer py-1 px-2 m-1 text-sm text-gray-800 rounded-sm border border-gray-400 hover:border-gray-500"><i class="text-gray-600 mr-2 fab fa-github"></i>Sup3r-Us3r</span>
+                            <span class="cursor-pointer py-1 px-2 m-1 text-sm text-gray-800 rounded-sm border border-gray-400 hover:border-gray-500"><i class="text-gray-600 mr-2 fas fa-globe"></i>sup3r-us3r.github.io</span>
+                        </div>
+                    </div>
+                    <!-- /INFO -->
+                    <!-- GALLERY -->
+                    <div class="mt-5 pb-1 bg-gray-100 flex flex-wrap items-center justify-center w-full rounded-sm border border-gray-400">
+                        <div class="flex flex-wrap items-center justify-between w-full p-3">
+                            <span class="text-lg text-gray-800">
+                                <i class="text-xs text-white bg-green-500 p-2 rounded-full far fa-image mr-2"></i>Fotos
+                            </span>
+                            <span class="cursor-pointer text-xs text-blue-600 border-b border-transparent hover:border-blue-600">Adicionar foto</span>
+                        </div>
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/65813921_2357078444565407_2032022497448165376_n.jpg?_nc_cat=107&_nc_oc=AQmhADU5VMjFO9UIrQ3GsVaaBEDSfMkgKdXcZNh1ODCuXdpk4dcoYenOu04WdaWsS9g&_nc_ht=scontent.fplu14-1.fna&oh=91f352821d17fa2ccd16fd1e5205601e&oe=5E111E6F" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/67624378_2380208245585760_5014500237931184128_n.jpg?_nc_cat=106&_nc_oc=AQlliXImDDqt13aHLX8x91K4Efjws1LxZU1xBid73ucv60fFxL91nGP7mqvY67jjkSI&_nc_ht=scontent.fplu14-1.fna&oh=91339425d3a2ee1ab1b08bb6ebaf2d6e&oe=5DD3D31B" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/65126289_2349787158627869_48023760208396288_n.jpg?_nc_cat=101&_nc_oc=AQlWCcM7QL0dKWL2Robde0a8xHemSJzUeBB6hGgPterNwC590FfIHAaMitk0pFfuUvY&_nc_ht=scontent.fplu14-1.fna&oh=03ea2f43b2f509045a59012d1d155ea2&oe=5DD1EC5E" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/60355471_2322317134708205_443096215261806592_n.jpg?_nc_cat=100&_nc_oc=AQkEbTwGpZiraztBV7S0He7bu_oODqPswFb0olucDUr0YSxVIy1q2rekI4eI2oHtv88&_nc_ht=scontent.fplu14-1.fna&oh=c9d3d25232be5ec1fb6631077f85932b&oe=5DCD09A7" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/52837079_2276650355941550_3454147711740149760_n.jpg?_nc_cat=108&_nc_oc=AQkI_rnlt51glg-FdrpZxBbZnKiMVEShi6Ows2oQZmud0ztaYPg_OFXpYLJJ9kjKLLA&_nc_ht=scontent.fplu14-1.fna&oh=940f1055f6deafe4ea074c8d7966e83d&oe=5DD56164" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/41406004_2175844682688785_6035196926608015360_n.jpg?_nc_cat=105&_nc_oc=AQnhHeppbJhW7OUtuo2TCo7db3PnACFMJDuR_Z5Rgtirkfl04mYU7YsSDbBmFOIl99Q&_nc_ht=scontent.fplu14-1.fna&oh=a0877ef8d150a7332081023fed727929&oe=5DCEAEA8" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/38433264_2147155375557716_2669249619581468672_n.jpg?_nc_cat=106&_nc_oc=AQnRDlmGtgYt4PpzdQv_F4z2WkdS_lUDLBBO83AMdRyZ4sD1S0bZ6dhD58TqcnCeCzk&_nc_ht=scontent.fplu14-1.fna&oh=3314ef29b2193f5048bef27ae281c408&oe=5DE5A455" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/38676816_2150330231906897_4056260585715662848_n.jpg?_nc_cat=108&_nc_oc=AQmuGFR2R3Mj0-WrPKJ-dIz5r7jYbVerKhlLYiwQpZxbIHS9Mh0dOioPRTWze9fG2RY&_nc_ht=scontent.fplu14-1.fna&oh=e3822db6269b58e2f649350137881fb9&oe=5DDE3A78" alt="Photo">
+                        <img class="p-1  md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/20952998_1948769745396281_6280428953223457818_n.jpg?_nc_cat=110&_nc_oc=AQn9X1KI5JWyggGh0xplQudUZXnOaKOtTDH9YgxPdKvx-_fibftFIZ1nfMzxzgmHmlM&_nc_ht=scontent.fplu14-1.fna&oh=3c153d7cea3fbb08bec8f272e4252b4b&oe=5DE4C3CD" alt="Photo">
+                    </div>
+                    <!-- /GALLERY -->
+                    <!-- FRIENDS -->
+                    <div class="mt-5 pb-1 bg-gray-100 flex flex-wrap items-center justify-center w-full rounded-sm border border-gray-400">
+                        <div class="flex flex-wrap items-center justify-between w-full p-3">
+                            <span class="text-lg text-gray-800">
+                                <i class="text-xs text-white bg-red-500 p-2 rounded-full fas fa-user-friends mr-2"></i>Amigos
+                                <span class="text-sm text-gray-600 ml-2">· 1.277</span>
+                            </span>
+                            <span class="cursor-pointer text-xs text-blue-600 border-b border-transparent hover:border-blue-600">Encontrar amigos</span>
+                        </div>
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/58833845_2229630233769352_7757961944585207808_n.jpg?_nc_cat=104&_nc_oc=AQmd6Mra7MBGcnPDiIfWTSOB9BZ9xKjAYq97Jl7ZTqfBYl1NKs3GmyjzSse_kTFDfn8&_nc_ht=scontent.fplu14-1.fna&oh=223e551166ec7b9a8eebbb36a60067ba&oe=5DD5AD90" alt="Photo">
+                        <!-- <span class="aboslute left-0 text-left text-black">Bill Junior</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/42905206_588745501541258_4722529834322886656_n.jpg?_nc_cat=110&_nc_oc=AQlO-czq5Q3BPlg3GAA2swWhRfuneHZuPazmLq8DMuIQaRDwoA7jLKKdkaUVqu90wqE&_nc_ht=scontent.fplu14-1.fna&oh=e5d1d5ef27730e4f69ebc775e19a72ad&oe=5DC81C01" alt="Photo">
+                        <!-- <span class="text-white">Pedro Chess</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/45085774_2658741454139707_2530297428872003584_n.jpg?_nc_cat=102&_nc_oc=AQl6MDPfTwh8UgZT_Z-zlEfT_ghV2Sawk6VjGJyMpDNa3MkHpEQdCHC0x5I5kRGhu7Y&_nc_ht=scontent.fplu14-1.fna&oh=d0755fb58bfa233394d94bdddbd6bb9c&oe=5E12A0AF" alt="Photo">
+                        <!-- <span class="text-white">Giovanni Sávio</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/57852301_10219903490604463_4342320427129896960_n.jpg?_nc_cat=105&_nc_oc=AQkFNXJLFuKawPL9ueNLtTfO_WRe0kR0P6T76kAQHmT8GWOpsiPi8UdxGd5m0qKFqXc&_nc_ht=scontent.fplu14-1.fna&oh=025ec29db66b3295b5c28d620d4f6cde&oe=5DC78F3F" alt="Photo">
+                        <!-- <span class="text-white">Filipe Deschamps</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/41312261_1836233389792769_8922680689267048448_n.jpg?_nc_cat=101&_nc_oc=AQkUzwfVowY0Y2ifik6w8SsV9eX1fzBRUTJ1YydwQCbxxt01brT3oJLEmL9BNLZBxCs&_nc_ht=scontent.fplu14-1.fna&oh=bba74d2930ad69b1b5c64ddb2be7c0a6&oe=5DE45239" alt="Photo">
+                        <!-- <span class="text-white">Bruno Elias</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/49637425_2040362539332136_7924960099938861056_n.jpg?_nc_cat=109&_nc_oc=AQneGeudeN1_IzLoYyty_utq8b5aMCrC_IpBkCU17osujV1rLn8qaA668KkWy9AhmY8&_nc_ht=scontent.fplu14-1.fna&oh=bfd909d1aca0910ae8819ed28e933b8a&oe=5DCE9613" alt="Photo">
+                        <!-- <span class="text-white">Lucas Bonafé</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/c0.3.100.100a/p100x100/25508083_952482211566131_1130238245632657283_n.jpg?_nc_cat=109&_nc_oc=AQlA2KY3gnZZTsKd6rajQCVOuBACY71ca0gQvlVMqs-XMmyguB_z8k6aGddTSIz0lKI&_nc_ht=scontent.fplu14-1.fna&oh=b25b338fd831c5fabc3ed9b6cd1fb77e&oe=5DE37BD7" alt="Photo">
+                        <!-- <span class="text-white">Fhilipe Crash</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/43296374_1145255142302120_7719498811642478592_n.jpg?_nc_cat=100&_nc_oc=AQleScjsrBedtLehrwTL0HjLKNZERyCeH0Nk4SqgQbxN3QruHpksmZ9GAJL9jLmO8Tc&_nc_ht=scontent.fplu14-1.fna&oh=910c34f53b5192378292dce14b8e6b9e&oe=5E165CC2" alt="Photo">
+                        <!-- <span class="text-white">Kaue Gomes</span> -->
+                        <img class="p-1 md:m-1 md:p-0 lg:m-1 lg:p-0 h-40 w-1/2 md:h-24 md:w-24 lg:h-24 lg:w-24 object-cover" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-1/p100x100/65374704_2511781605518765_7615810424147017728_n.jpg?_nc_cat=104&_nc_oc=AQlOtcxUN3YKHmGd6sOfjWjRnbjCZ0LWTNBfBi0BX4JnlYEhDOeNn5WG6QIzb5ZA_zc&_nc_ht=scontent.fplu14-1.fna&oh=dc82c33f2b37d1bf50edc63f921bf364&oe=5DE0AFFD" alt="Photo">
+                        <!-- <span class="text-white">Alcyon Junior</span> -->
+                    </div>
+                    <!-- /FRIENDS -->
+                </section>
+
+                <section class="mt-4 ml-0 md:ml-2 lg:ml-2 w-full md:w-3/5 lg:w-3/5 h-screen">
+                    <div class="flex flex-wrap items-center justify-start bg-gray-100 border border-gray-400 rounded-sm">
+                        <!-- POST HEADER -->
+                        <div class="mb-3 flex flex-wrap items-center justify-around md:justify-start lg:justify-start bg-gray-200 px-1 py-2 w-full rounded-sm border-b border-gray-400">
+                            <span class="cursor-pointer mt-3 md:mt-0 lg:mt-0 text-sm md:text-xs lg:text-xs font-semibold text-blue-800 mx-2"><i class="mr-1 text-gray-800 fas fa-pencil-alt"></i>Criar publicação</span>
+                            <span class="cursor-pointer mt-3 md:mt-0 lg:mt-0 text-sm md:text-xs lg:text-xs font-semibold text-blue-800 mx-2"><i class="mr-1 text-gray-800 fas fa-camera"></i>Foto/vídeo</span>
+                            <span class="cursor-pointer mt-3 md:mt-0 lg:mt-0 text-sm md:text-xs lg:text-xs font-semibold text-blue-800 mx-2"><i class="mr-1 text-gray-800 fas fa-video"></i>Vídeo ao vivo</span>
+                            <span class="cursor-pointer mt-3 md:mt-0 lg:mt-0 text-sm md:text-xs lg:text-xs font-semibold text-blue-800 mx-2"><i class="mr-1 text-gray-800 fab fa-font-awesome-flag"></i>Acontecimento</span>
+                        </div>
+                        <!-- /POST HEADER -->
+                        <!-- WRITE POST -->
+                        <img class="ml-3 h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+                        <!-- <span class="ml-3 text-gray-600 tracking-normal">No que você está pensando?</span> -->
+                        <input class="ml-3 text-gray-600 tracking-normal w-2/3 focus:outline-none" type="text" placeholder="No que você está pensando?">
+                        <hr class="mt-5 border-b border-gray-200 w-full mx-3">
+                        <!-- /WRITE POST -->
+                        <!-- POST ACTIONS -->
+                        <div class="mx-2 mt-2 mb-3 flex flex-wrap items-center justify-center md:justify-start lg:justify-start w-full">
+                            <button class="mt-2 w-full md:w-auto lg:w-auto md:mt-0 lg:mt-0 mx-1 text-xs py-1 px-3 bg-gray-200 rounded-full cursor-pointer flex flex-wrap items-center justify-center md:justify-around lg:justify-around focus:outline-none hover:bg-gray-300">
+                                <span class="fc-icon fc-icon-foto-video outline-none"></span>
+                                <span class="ml-1 outline-none font-semibold text-gray-700">Foto/vídeo</span>
+                            </button>
+                            <button class="mt-2 w-full md:w-auto lg:w-auto md:mt-0 lg:mt-0 mx-1 text-xs py-1 px-3 bg-gray-200 rounded-full cursor-pointer flex flex-wrap items-center justify-center md:justify-around lg:justify-around focus:outline-none hover:bg-gray-300">
+                                <span class="fc-icon fc-icon-marcar-amigos outline-none"></span>
+                                <span class="ml-1 outline-none font-semibold text-gray-700">Marcar amigos</span>
+                            </button>
+                            <button class="mt-2 w-full md:w-auto lg:w-auto md:mt-0 lg:mt-0 mx-1 text-xs py-1 px-3 bg-gray-200 rounded-full cursor-pointer flex flex-wrap items-center justify-center md:justify-around lg:justify-around focus:outline-none hover:bg-gray-300">
+                                <span class="fc-icon fc-icon-sentimentos outline-none"></span>
+                                <span class="ml-1 outline-none font-semibold text-gray-700">Sentimentos/a...</span>
+                            </button>
+                            <button class="mt-2 w-full md:w-auto lg:w-auto md:mt-0 lg:mt-0 mx-1 text-xs py-1 px-3 bg-gray-200 rounded-full cursor-pointer flex flex-wrap items-center justify-center md:justify-around lg:justify-around focus:outline-none hover:bg-gray-300">
+                                <span class="fc-icon fc-icon-mais outline-none"></span>
+                            </button>
+                        </div>
+                        <!-- POST ACTIONS -->
+                    </div>
+
+                    <div class="mt-5 flex flex-wrap items-center justify-start bg-gray-100 border border-gray-400 rounded-sm">
+                        <!-- POST HEADER -->
+                        <div class="mt-3 flex flex-wrap items-center justify-start">
+                            <img class="ml-3 h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+                            <div class="cursor-pointer ml-3 block leading-snug">
+                                <span class="block text-sm font-semibold text-blue-800">Magno Santos</span>
+                                <span class="block text-xs text-gray-700">12 de agosto às 20:20
+                                    <i class="ml-1 fas fa-globe-americas"></i>
+                                    <i class="fas fa-sort-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /POST HEADER -->
+                        <!-- PUBLICATIONS -->
+                        <div class="flex flex-wrap items-center justify-center">
+                            <div class="mt-5 block">
+                                <p class="mx-3 mb-5 text-sm text-gray-800">
+                                    Cara que trabalho da porra kkkk, um processo que demorava 4h para fazer manual, agora é feito em 2min, e automático, bastando apenas clicar em um executável ❤️😎
+                                </p>
+                                <img class="rounded-sm" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/67624378_2380208245585760_5014500237931184128_n.jpg?_nc_cat=106&_nc_oc=AQkTNdlDGxC5nQM8mAG7axmB5IlGSSE4rYp754x1qQQIH0aIkfn3srFZQ37RI-1HPhU&_nc_ht=scontent.fplu14-1.fna&oh=99ec75696d4a5762c8f9a33a28f620a1&oe=5DD3D31B" alt="Post">
+                            </div>
+                        </div>
+                        <!-- /PUBLICATIONS -->
+                        <!-- LIKES -->
+                        <div class="mt-3 ml-3 flex flex-nowrap items-center justify-start">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/10/facebook-amei-emoji-7.png" alt="Love">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/08/facebook-emoji-haha-risada-7.png" alt="Hahaha">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/05/botao-facebook-like-icone-8.png" alt="Like">
+                            <span class="ml-2 text-xs text-gray-600">Linus Torvalds, Mark Zuckerberg e outras 150 pessoas</span>
+                        </div>
+                        <!-- /LIKES -->
+                        <!-- REACTIONS -->
+                        <div class="py-2 flex flex-wrap items-center justify-center w-full mx-0 md:mx-3 lg:mx-3">
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-thumbs-up"></i>Curtir</span>
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-comment-alt"></i>Comentar</span>
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-share"></i>Compartilhar</span>
+                        </div>
+                        <!-- /REACTIONS -->
+                    </div>
+
+                    <div class="mt-5 flex flex-wrap items-center justify-start bg-gray-100 border border-gray-400 rounded-sm">
+                        <!-- POST HEADER -->
+                        <div class="mt-3 flex flex-wrap items-center justify-start">
+                            <img class="ml-3 h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+                            <div class="cursor-pointer ml-3 block leading-snug">
+                                <span class="block text-sm font-semibold text-blue-800">Magno Santos</span>
+                                <span class="block text-xs text-gray-700">21 de julho às 22:37
+                                    <i class="ml-1 fas fa-globe-americas"></i>
+                                    <i class="fas fa-sort-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /POST HEADER -->
+                        <!-- PUBLICATIONS -->
+                        <div class="flex flex-wrap items-center justify-center">
+                            <div class="mt-5 block">
+                                <p class="mx-3 mb-5 text-sm text-gray-800">
+                                    Kkkkkk ai você vai tentar baixar uma .iso que só libera Download se tiver no Mac ou Linux, ai você lembra que se trocar o User Agent resolve o problema 😂😂😂
+                                </p>
+                                <img class="rounded-sm" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/67181917_2370911543182097_8213418139422031872_n.jpg?_nc_cat=104&_nc_oc=AQnFLc_rJsCYIrJ6AaG5kD8F8eXyeNFZFjRRlba8oY0SgUO_uhAnssFSxY0aTL7TGH0&_nc_ht=scontent.fplu14-1.fna&oh=cc6fed1dc4722b1308159cb63930df29&oe=5DDB64ED" alt="Post">
+                            </div>
+                        </div>
+                        <!-- /PUBLICATIONS -->
+                        <!-- LIKES -->
+                        <div class="mt-3 ml-3 flex flex-nowrap items-center justify-start">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/10/facebook-amei-emoji-7.png" alt="Love">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/08/facebook-emoji-haha-risada-7.png" alt="Hahaha">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/05/botao-facebook-like-icone-8.png" alt="Like">
+                            <span class="ml-2 text-xs text-gray-600">Mia Khalifa, Scarlett Johansson e outras 33 pessoas</span>
+                        </div>
+                        <!-- /LIKES -->
+                        <!-- REACTIONS -->
+                        <div class="py-2 flex flex-wrap items-center justify-center w-full mx-0 md:mx-3 lg:mx-3">
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-thumbs-up"></i>Curtir</span>
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-comment-alt"></i>Comentar</span>
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-share"></i>Compartilhar</span>
+                        </div>
+                        <!-- /REACTIONS -->
+                    </div>
+
+                    <div class="mt-5 flex flex-wrap items-center justify-start bg-gray-100 border border-gray-400 rounded-sm">
+                        <!-- POST HEADER -->
+                        <div class="mt-3 flex flex-wrap items-center justify-start">
+                            <img class="ml-3 h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+                            <div class="cursor-pointer ml-3 block leading-snug">
+                                <span class="block text-sm font-semibold text-blue-800">Magno Santos</span>
+                                <span class="block text-xs text-gray-700">23 de julho às 16:22
+                                    <i class="ml-1 fas fa-globe-americas"></i>
+                                    <i class="fas fa-sort-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /POST HEADER -->
+                        <!-- PUBLICATIONS -->
+                        <div class="flex flex-wrap items-center justify-center">
+                            <div class="mt-5 block">
+                                <p class="mx-3 mb-5 text-sm text-gray-800">
+                                    Mais um para coleção ❤️
+                                </p>                                
+                                <img class="rounded-sm" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/64734283_2351981591741759_8031888387424124928_n.jpg?_nc_cat=106&_nc_oc=AQlvHDH0JcINocMn2e0RoWKqo87zhtNvUZbyrhOQRpSTbt0HDymTmmkDKmz8vn0dA5Q&_nc_ht=scontent.fplu14-1.fna&oh=f0e166d466b477685d7d6c40ef23b494&oe=5DD2A0A5" alt="Post">
+                            </div>
+                        </div>
+                        <!-- /PUBLICATIONS -->
+                        <!-- LIKES -->
+                        <div class="mt-3 ml-3 flex flex-nowrap items-center justify-start">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/10/facebook-amei-emoji-7.png" alt="Love">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/08/facebook-emoji-haha-risada-7.png" alt="Hahaha">
+                            <img class="h-4 w-4" src="https://imagepng.org/wp-content/uploads/2017/05/botao-facebook-like-icone-8.png" alt="Like">
+                            <span class="ml-2 text-xs text-gray-600">Tony Stark, Hulk e outras 70 pessoas</span>
+                        </div>
+                        <!-- /LIKES -->
+                        <!-- REACTIONS -->
+                        <div class="py-2 flex flex-wrap items-center justify-center w-full mx-0 md:mx-3 lg:mx-3">
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-thumbs-up"></i>Curtir</span>
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-comment-alt"></i>Comentar</span>
+                            <span class="mx-2 md:mx-0 lg:mx-0 text-sm bg-transparent flex-none md:flex-1 lg:flex-1 rounded-sm text-center cursor-pointer py-1 hover:bg-gray-200"><i class="text-gray-600 mr-2 fas fa-share"></i>Compartilhar</span>
+                        </div>
+                        <!-- /REACTIONS -->
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </section>
+            </section>
+        </section>
+
+        <section class="hidden md:hidden lg:block ml-40 pt-2 w-3/12 bg-gray-300 border-l border-gray-400">
+            <div class="fixed right-0 h-screen overflow-auto md:w-1/4 lg:w-1/5 border-l border-gray-400">
+                <!-- CONTATOS -->
+                <span class="ml-2 uppercase font-semibold text-xs text-gray-800">Suas Páginas</span>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Magno Tutor</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-800 bg-white px-1 mr-2">4</span>
+                </div>
+                <span class="ml-2 uppercase font-semibold text-xs text-gray-800">Contatos</span>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/58833845_2229630233769352_7757961944585207808_n.jpg?_nc_cat=104&_nc_eui2=AeFDtzEeWpqe2h3dD7G3gqBagn6QYsGv4E-4zpAlAwPhm99N3RtV1e0oTBNFk0HAOWuSdLFmf0dUETFRN2X5s-qrmKkmVhe_fQrfZKVEMJZpXg&_nc_oc=AQknOQv3PTo5nCg9Qx06QCi3O2WuUSU7aLtCLO9rYjma_P7HenlYC1brckUZgMLnLl4&_nc_ht=scontent-gru2-2.xx&oh=ac330d5af1a0dc6e9bdd2a5fb2b0486e&oe=5D9FECC6" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Bill Junior</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/45085774_2658741454139707_2530297428872003584_n.jpg?_nc_cat=102&_nc_eui2=AeEwRepwMp3bwUpmu2ijBwLeloarluE0DshYWeMiIPgyFvUIaPJFUwv2poG_h6StHjr55hysplIqhui2cMtr1I6RZDHx-y2DdSy2PTuYl-Qs-Q&_nc_oc=AQk6MkYDTT4ewD4Ea4KlXNcET3PLcutNALa8ODhm54vECt77tE-r42ZzG1f5WahXhVc&_nc_ht=scontent-gru2-2.xx&oh=164189f1593c173dc8b4625070451618&oe=5DE1B0F9" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Giovanni Sávio</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p32x32/41312261_1836233389792769_8922680689267048448_n.jpg?_nc_cat=101&_nc_eui2=AeGsewnsr7OQXhlg_N9KiQStP6FYCCcwBKBzNTDIXgzHNsyrH-Uz9ZYg9fPR1mqaKK4JXthU-ykgngIJ8LjjlomSU5Udqcdd6dyRRS7MfJBLDA&_nc_oc=AQmhCseh7j7U0VWm9GuefG-NI-qCIVooZoQzrS8EooGhyVLcUVPKZcRyBhe5J4ll8FU&_nc_ht=scontent-gru2-2.xx&oh=17d190ecbfa5ebc38d16f7b3d706dece&oe=5DA01DAF" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Bruno Elias</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-700 mr-2">1 h</span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/43296374_1145255142302120_7719498811642478592_n.jpg?_nc_cat=100&_nc_eui2=AeHhYOpBnp8fqqXnXwYPalUvByqD1nx3O5jQO6eT3DBLTzMZGgREDDPVV0S7gOpLPwopxi-AR5LJtp70g2cYKnl5Ax5gDHXXk4t7nF2_Yo_RIQ&_nc_oc=AQlP8TwBHEEXIa_jzLddIJLp9-EvqHNye5x8O8N2dp4nnHSDy_VHQQWORE-pMPYDdi0&_nc_ht=scontent-gru2-2.xx&oh=be4c0bf6f7d14e2d4707adea6ad8e7db&oe=5DB21894" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Kaue Gomes</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-700 mr-2">3 h</span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/10489885_1504777086422039_1298384245526849284_n.jpg?_nc_cat=109&_nc_oc=AQlM9MnSiYIXQyDlNgTwkRhZCY0sndfNQwNSWZRgkT3VMofZC4BUUYL-sUbfpDPOQjY&_nc_ht=scontent.fplu14-1.fna&oh=1743759c4cc9f8387f5984b0c8a310f9&oe=5DDCCEEB" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Gabriel Costa</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-700 mr-2">7 h</span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/19990069_1348328791882109_965175269270643453_n.jpg?_nc_cat=104&_nc_eui2=AeGmIVJAD9EpgF-S7dGHUKPCJ9FOdwL8ChoiAXY20TGwap-VhLUinVWPURiAOfH60i-uX42kjHYtN_owz3kLwDn4JF3lBpgeAYsclmlANo3M3A&_nc_oc=AQkpYCjwguTw30eG5cgr0gAZUXs6FLThrGwiZhnXXLC_urjG6DMtb1GkoADMiJWhGjE&_nc_ht=scontent-gru2-2.xx&oh=f03ca2d4fa7f1ab4398721e06d00cdd5&oe=5DEE3BEE" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Leonardo Costa</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-700 mr-2">10 min</span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/49637425_2040362539332136_7924960099938861056_n.jpg?_nc_cat=109&_nc_eui2=AeH6GeTPHqRlhapM1ajuIU-79-zDziwMVR9UGPvGKR0il4aOEBOfTYIsYpifNk2AbGcDcppil79RaMNO5a1OxvCMOuWxHXt9ycGwVl79L2FRGg&_nc_oc=AQkGDCRzAbKN1g1WpBWJDRh1uK6JuKfTMi4cmR9rc8ObaOKUrtMI_A5VGMFMDbroOGY&_nc_ht=scontent-gru2-2.xx&oh=f8657a43652fa8e38db8c56f943ae669&oe=5DEB0945" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Lucas Bonafé</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p32x32/57503510_627208761088160_6697145184712392704_n.jpg?_nc_cat=111&_nc_eui2=AeEk1A9GWB-asuykPBz-4VlY6cx35Y4OXlE9LrIFt9rk5wS5F4ohAkj-9nvITaAOZd35VZct7EYwE0XatJZcFEdAOwfwqYECPVmYEKboq74MAg&_nc_oc=AQmV70mLjgOTk73g-3DKCZnEw3Li5o4hbv8LBpB6OBirPvjf0dzj4XCaBCTpsHufRNI&_nc_ht=scontent-gru2-2.xx&oh=c6064fe6303e42d36414c97f09100356&oe=5DA40749" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Renier Mamede</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-700 mr-2">35 min</span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/42905206_588745501541258_4722529834322886656_n.jpg?_nc_cat=110&_nc_eui2=AeHE0wgAGkDJ4elfycOQTqd4iSBxeNAmDSB6ygQ96jpUXEib-_Fk1_-9bqqC9TCFEYrPP8hkcMRzLt3iLINizGEi8QYpGLg5Xq_Acn-Hhf6QOw&_nc_oc=AQnVn_q3j-8g0z1bqbFOP3y5stFtzTF6oSE8x_3Fh0vWP-Du0jBc-8mye-IYD2LQZDc&_nc_ht=scontent-gru2-2.xx&oh=c04ade295a2bd5a96ccb70760d621690&oe=5DABEB0F" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Pedro Chess</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/57852301_10219903490604463_4342320427129896960_n.jpg?_nc_cat=105&_nc_oc=AQkFNXJLFuKawPL9ueNLtTfO_WRe0kR0P6T76kAQHmT8GWOpsiPi8UdxGd5m0qKFqXc&_nc_ht=scontent.fplu14-1.fna&oh=17cd5ac13fd17ac8d40be459e8b28bd7&oe=5DC9B567" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Filipe Deschamps</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/65374704_2511781605518765_7615810424147017728_n.jpg?_nc_cat=104&_nc_oc=AQlOtcxUN3YKHmGd6sOfjWjRnbjCZ0LWTNBfBi0BX4JnlYEhDOeNn5WG6QIzb5ZA_zc&_nc_ht=scontent.fplu14-1.fna&oh=2901d9c0b38071de3e0a7d2b88b1df35&oe=5DDF0459" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Alcyon Junior</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent.fplu14-1.fna.fbcdn.net/v/t1.0-9/66687998_10211469069002995_6368343198862934016_n.jpg?_nc_cat=107&_nc_oc=AQnT9AJzIh5pHh4ycR8l4YoO6AVkP6eve56Jh6_xUw5sexmruNPKiRwicdDYIWCTyJE&_nc_ht=scontent.fplu14-1.fna&oh=c8c7fd4211bbb4071fa5272eb3edf91f&oe=5DDEE27D" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Delcio Lopes</span>
+                    </div>
+                    <span class="h-2 w-2 bg-green-400 rounded-full mr-2"></span>
+                </div>
+                <div class="ml-2 my-3 flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <img class="block h-8 w-8 rounded-full mr-3" src="https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p50x50/1936536_10205346735608858_2297510632934632605_n.jpg?_nc_cat=104&_nc_eui2=AeH-snS9Z-8S_ecgEILS-Mw7pwUJo7OQsiNSvTxiasJdidNnTdEfEMaCdDu57T5fh4ZkNAc0FHr_GoJbt3cmgyF_f4OiR2s7wc51FidR70c_1A&_nc_oc=AQmY7bStFasV92pBJWYqBaaU2lmjiINDIy8LGMN0yT6DmxvK0-Tvg5Ccb3KyXL1rXbA&_nc_ht=scontent-gru2-2.xx&oh=a980183b35a3dee42fcedd3acae9ee57&oe=5DE57E55" alt="Perfil">
+                        <span class="text-xs font-semibold text-gray-800">Daniel Vieira</span>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-700 mr-2">5 h</span>
+                </div>
+                <span class="ml-2 uppercase font-semibold text-xs text-gray-800">Conversa em Grupo</span>
+                <div class="mb-24 my-3 flex items-center justify-start">
+                    <svg class="ml-2 fill-current text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M.002 20h6.001c-.028-6.542 2.995-3.697 2.995-8.901C8.998 9.09 7.687 8 6 8c-2.492 0-4.226 2.383-1.866 6.839.775 1.464-.825 1.812-2.545 2.209C.099 17.392 0 18.12 0 19.381L.002 20zM20.5 13a3.5 3.5 0 1 0 .001 7.001A3.5 3.5 0 0 0 20.5 13zm1.5 4h-1v1h-1v-1h-1v-1h1v-1h1v1h1v1zm-4.814 3H8.003L8 19.171c0-1.679.133-2.649 2.118-3.107 2.243-.518 4.458-.981 3.394-2.945C10.356 7.299 12.611 4 16 4c4.06 0 4.857 4.119 3.085 7.903-1.972.609-3.419 2.428-3.419 4.597 0 1.38.589 2.619 1.52 3.5z"/></svg>
+                    <span class="ml-3 text-xs text-gray-800">Criar novo Grupo</span>
+                </div>
+                <!-- /CONTATOS -->
+            </div>
+            <!-- CONTACT OPTIONS -->
+            <div class="fixed bottom-0 right-0 w-1/5 h-8 flex items-center justify-center bg-gray-100 text-gray-600">
+                <div class="md:hidden lg:hidden xl:block relative">
+                    <input class="text-center focus:outline-none" type="text" placeholder="Pesquisar">
+                    <i class="absolute text-gray-600 fas fa-search top-0 left-0 pt-1"></i>
+                </div>
+                <div class="inline-block">
+                    <i class="mx-1 fas fa-cog"></i>
+                    <i class="mx-1 far fa-sticky-note"></i>
+                    <i class="mx-1 fas fa-user-plus"></i>
+                </div>
+            </div>
+            <!-- /CONTACT OPTIONS -->
+        </section>
+    </main>
+
+    <script>
+        //Javascript to toggle the menu
+        document.getElementById('nav-toggle').onclick = function() {
+            document.getElementById("nav-content").classList.toggle("hidden");
+        }
+    </script>
+</body>
+</html>
